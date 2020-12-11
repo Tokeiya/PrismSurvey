@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using GongSolutions.Wpf.DragDrop;
 using Prism.Mvvm;
@@ -21,7 +17,6 @@ namespace PrismSurvey.ViewModels
 
 		public void DragOver(IDropInfo dropInfo)
 		{
-
 			Console.WriteLine(dropInfo.Data.GetType().Name);
 			dropInfo.DropTargetAdorner = DropTargetAdorners.Highlight;
 			dropInfo.Effects = DragDropEffects.Copy;

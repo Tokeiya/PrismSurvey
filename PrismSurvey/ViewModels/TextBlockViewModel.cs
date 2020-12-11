@@ -1,32 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using GongSolutions.Wpf.DragDrop;
 using Prism.Mvvm;
 
 namespace PrismSurvey.ViewModels
 {
-	public class TextBlockViewModel:BindableBase,IDragSource
+	public class TextBlockViewModel : BindableBase, IDragSource
 	{
-		public TextBlockViewModel(string text) => _text = text;
-
 		private string _text;
+
+		public TextBlockViewModel(string text)
+		{
+			_text = text;
+		}
 
 		public string Text
 		{
 			get => _text;
 			set => SetProperty(ref _text, value);
 		}
-		
+
 		public void StartDrag(IDragInfo dragInfo)
 		{
 			dragInfo.Data = Text;
 			dragInfo.Effects = DragDropEffects.Copy;
-			
+
 			Console.WriteLine("DragSource StartDrag");
 		}
 
@@ -39,7 +37,6 @@ namespace PrismSurvey.ViewModels
 		public void Dropped(IDropInfo dropInfo)
 		{
 			Console.WriteLine("DragSource Dropped.");
-
 		}
 
 		public void DragDropOperationFinished(DragDropEffects operationResult, IDragInfo dragInfo)

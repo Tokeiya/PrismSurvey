@@ -1,11 +1,10 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Windows;
 
 namespace PrismSurvey.Views
 {
 	/// <summary>
-	/// Interaction logic for MainWindow.xaml
+	///     Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow : Window
 	{
@@ -16,7 +15,6 @@ namespace PrismSurvey.Views
 		}
 
 		[DllImport("Kernel32.dll", CharSet = CharSet.Unicode)]
-		static extern bool AllocConsole();
-
+		private static extern bool AllocConsole();
 	}
 }
