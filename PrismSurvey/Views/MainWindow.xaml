@@ -1,0 +1,29 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+        xmlns:viewModels="clr-namespace:PrismSurvey.ViewModels"
+        xmlns:av="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:ps="clr-namespace:PrismSurvey"
+        xmlns:dd="urn:gong-wpf-dragdrop"
+        mc:Ignorable="av" x:Class="PrismSurvey.Views.MainWindow"
+        Title="{Binding Title}" Height="480" Width="640" ResizeMode="NoResize" >
+	<Window.DataContext>
+		<viewModels:MainWindowViewModel/>
+	</Window.DataContext>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="3*"/>
+		</Grid.ColumnDefinitions>
+		<TextBox Grid.Column="1" Margin="10,10,10,10" Text="{Binding TextBoxValue.Text}" TextWrapping="Wrap" av:LayoutOverrides="HorizontalAlignment" dd:DragDrop.IsDropTarget="True" dd:DragDrop.DropHandler="{Binding TextBoxValue}"/>
+		<TextBlock  Margin="10,10,10,0" Text="{Binding Upper.Text}" TextWrapping="Wrap" Background="#FF00FFF3" av:LayoutOverrides="HorizontalAlignment" VerticalAlignment="Top" dd:DragDrop.IsDragSource="True" dd:DragDrop.DragHandler="{Binding Upper}"/>
+
+		<TextBlock  Margin="10,31,10,0" Text="{Binding Middle.Text}" TextWrapping="Wrap" Background="#FF00FFF3" VerticalAlignment="Top" dd:DragDrop.IsDragSource="True" dd:DragDrop.DragHandler="{Binding Middle}"/>
+		<TextBlock  Margin="10,52,10,0" Text="{Binding Bottom.Text}" TextWrapping="Wrap" Background="#FF00FFF3" VerticalAlignment="Top" dd:DragDrop.IsDragSource="True" dd:DragDrop.DragHandler="{Binding Bottom}"/>
+		<Button Content="ClearConsole" Margin="10,376,10,10" dd:DragDrop.IsDropTarget="True" Command="{Binding ButtonCommand, Mode=OneWay}" />
+	</Grid>
+</Window>
