@@ -18,7 +18,11 @@ namespace PrismSurvey.ViewModels
 
 		public MainWindowViewModel()
 		{
-			ButtonCommand.Subscribe(Console.Clear);
+			ButtonCommand.Subscribe(()=>
+			{
+				Console.Clear();
+				TextBoxValue.Text = "";
+			});
 		}
 		
 		public TextBoxViewModel TextBoxValue { get; } = new();
